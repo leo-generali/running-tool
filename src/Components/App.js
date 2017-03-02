@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { formatPace } from '../helpers'
+import Result from './Result'
+import Calc from './Calc'
 
 class App extends Component {
-  state = {
-    time: 20,
-    distance: 5,
-    pace: 4,
-    paceStr: "4:00",
-    isKilometers: true
-  };
+  constructor(){
+    super()
+
+    this.changeDistanceType=this.changeDistanceType.bind(this);
+    this.updateDistance=this.updateDistance.bind(this);
+    this.updateTime=this.updateTime.bind(this);
+    this.updatePace=this.updatePace.bind(this);
+  
+    this.state = {
+      time: 20,
+      distance: 5,
+      pace: 4,
+      paceStr: "",
+      isKilometers: true
+    };
+  }
+
 
   updateDistance = (e) => {
     const d = Number(e.target.value);
@@ -37,16 +49,28 @@ class App extends Component {
     })
   }
 
+  changeDistanceType(){
+    this.setState(prevState => ({
+      isKilometers: !prevState.isKilometers
+    }));
+  }
+
   render() {
   
     return (
-      <form onSubmit={this.updatePace}>
-        <p>Distance <span id="distanceType">K</span></p>
-        <input type="number" onChange={this.updateDistance}/>
-        <p>Time</p>       
-        <input type="number" onChange={this.updateTime} />
-        <input type="submit" />
-      </form>
+      <div>
+        <Calc 
+          updateDistance={this.updateDistance}
+          updateTime={this.updateTime}
+          updatePace={this.updatePace}
+          isKilometers={this.state.isKilometers}
+         />
+        
+        <Result 
+          paceStr={this.state.paceStr}
+          isKilometers={this.state.isKilometers}
+        />
+      </div>
     );
   }
 }
