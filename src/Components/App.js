@@ -64,6 +64,9 @@ class App extends Component {
           updateTime={this.updateTime}
           updatePace={this.updatePace}
           isKilometers={this.state.isKilometers}
+          changeDistanceType={this.changeDistanceType}
+          time={this.state.time}
+          distance={this.state.distance}
          />
         
         <Result 
