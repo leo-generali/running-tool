@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formatPace, formatTime} from '../helpers'
+import { formatPace, formatTime, decimalRound } from '../helpers'
 import Result from './Result'
 import Calc from './Calc'
 
@@ -13,8 +13,8 @@ class App extends Component {
     this.updatePace=this.updatePace.bind(this);
   
     this.state = {
-      time: 20,
-      distance: 5,
+      time: 300,
+      distance: 1,
       pace: 4,
       paceStr: "",
       isKilometers: true
@@ -38,6 +38,7 @@ class App extends Component {
 
   updatePace = (e) => {
     e.preventDefault();
+
     const d = this.state.distance;
     const t = this.state.time;
     const pace = t/d;
@@ -50,9 +51,19 @@ class App extends Component {
   }
 
   changeDistanceType = (e) => {
+
     if(e.nativeEvent.detail > 0){
+      let distance = Number(document.getElementById("distance").value);
+      if(this.state.isKilometers){
+        distance = decimalRound((distance * 0.621371), 1);
+        document.getElementById("distance").value = distance;
+      }else{
+        distance = decimalRound((distance * 1.60934), 1);
+        document.getElementById("distance").value = distance;
+      }
       this.setState(prevState => ({
-        isKilometers: !prevState.isKilometers
+        isKilometers: !prevState.isKilometers,
+        distance: distance
       })); 
     }
 

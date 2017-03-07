@@ -4,7 +4,7 @@
   * @param { number } d - distance
 */
 
-export function formatPace(t, d){
+export function formatPace(t, d) {
   const prefix = Math.floor((t/60)/d).toString(); 
   const suffix = Math.floor((((t/60)/d - Math.floor((t/60)/d)) * 60));
 
@@ -14,7 +14,7 @@ export function formatPace(t, d){
   return suffix >= 10 ? prefix + ':' + suffixStr : prefix + ':' + '0' + suffixStr; 
 }
 
-export function formatTime(t){
+export function formatTime(t) {
   const arr = t.split(':')
   const sec = Number(arr[arr.length - 1]);
   const min = arr[arr.length - 2];
@@ -28,4 +28,8 @@ export function formatTime(t){
     console.log(sec + minSec + hourSec);
     return sec + minSec + hourSec;
   }
+}
+
+export function decimalRound(value, decimals) {
+  return Number(Math.round(value+"e"+decimals)+"e-"+decimals);
 }

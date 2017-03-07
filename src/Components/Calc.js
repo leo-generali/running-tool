@@ -11,6 +11,7 @@ class Calc extends Component{
             onChange={this.props.updateDistance}
             placeholder={this.props.distance}
             step="any"
+            id="distance"
           />
           <button onClick={this.props.changeDistanceType}>
             {
