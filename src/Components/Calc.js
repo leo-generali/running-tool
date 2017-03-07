@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
 class Calc extends Component{
-  render(){
+  render() {
     return(
-      
       <div>
-        <button onClick={this.props.changeDistanceType}>{this.props.isKilometers ? "K" : "M"}</button>
         <form onSubmit={this.props.updatePace}>
           <p>Distance</p>
           <input
@@ -14,11 +12,16 @@ class Calc extends Component{
             placeholder={this.props.distance}
             step="any"
           />
+          <button onClick={this.props.changeDistanceType}>
+            {
+              this.props.isKilometers ? "Km" : "Mi"
+            }
+          </button>
           <p>Time</p>       
           <input 
-            type="number" 
+            type="string" 
             onChange={this.props.updateTime} 
-            placeholder={this.props.time}
+            placeholder='HH:MM:SS or MM:SS'
             step="any"
           />
           <input type="submit" />

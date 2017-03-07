@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formatPace } from '../helpers'
+import { formatPace, formatTime} from '../helpers'
 import Result from './Result'
 import Calc from './Calc'
 
@@ -21,7 +21,6 @@ class App extends Component {
     };
   }
 
-
   updateDistance = (e) => {
     const d = Number(e.target.value);
     this.setState({
@@ -30,9 +29,10 @@ class App extends Component {
   }
 
   updateTime = (e) => {
-    const t = Number(e.target.value);
+    const t = e.target.value;
+    console.log(formatTime(t));
     this.setState({
-      time: t
+      time: formatTime(t) 
     }) 
   }
 
@@ -49,10 +49,13 @@ class App extends Component {
     })
   }
 
-  changeDistanceType(){
-    this.setState(prevState => ({
-      isKilometers: !prevState.isKilometers
-    }));
+  changeDistanceType = (e) => {
+    if(e.nativeEvent.detail > 0){
+      this.setState(prevState => ({
+        isKilometers: !prevState.isKilometers
+      })); 
+    }
+
   }
 
   render() {

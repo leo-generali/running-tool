@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Result extends Component {
   render() {
-    const test = this.props.isKilometers ? "Kilometer" : "Mile"
+    const test = this.props.isKilometers ? "kilometer" : "mile";
     
     return(
       <p>
