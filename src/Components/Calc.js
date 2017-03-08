@@ -16,7 +16,7 @@ class Calc extends Component{
           />
           <button onClick={this.props.changeDistanceType} className="input-button input-button--dis">
             {
-              this.props.isKilometers ? "Km" : "Mi"
+              this.props.isKilometers ? "K" : "M"
             }
           </button>
           <h2 className="header">Time</h2>       
