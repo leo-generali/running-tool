@@ -4,7 +4,7 @@ class Calc extends Component{
   render() {
     return(
       <div>
-        <form onSubmit={this.props.updatePace}>
+        <form onSubmit={this.props.updatePace} className="calc-form">
           <p>Distance</p>
           <input
             type="number" 
