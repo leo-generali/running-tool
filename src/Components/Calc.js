@@ -29,7 +29,7 @@ class Calc extends Component{
           <input 
             type="submit" 
             className="input-button input-button--go" 
-            value="OK" 
+            value=">" 
           />
         </form>
       </div>
