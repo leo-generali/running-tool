@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { formatPace, formatTime, decimalRound } from '../helpers'
-import Result from './Result'
-import Calc from './Calc'
+import React, { Component } from "react";
+import { formatPace, formatTime, decimalRound } from "../helpers";
+import Result from "./Result";
+import Calc from "./Calc";
 
 class App extends Component {
   constructor(){
@@ -41,6 +41,8 @@ class App extends Component {
 
     const d = this.state.distance;
     const t = this.state.time;
+    //if there is not a number, in the distance form. String will not be updated 
+    if(!d){return}
     const pace = t/d;
     const paceStr = formatPace(t,d);
 
