@@ -14,8 +14,8 @@ class App extends Component {
   
     this.state = {
       time: 300,
-      distance: 1,
-      pace: 4,
+      distance: 5,
+      pace: 15,
       paceStr: "",
       isKilometers: true
     };
