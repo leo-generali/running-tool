@@ -5,9 +5,12 @@ class Result extends Component {
     const test = this.props.isKilometers ? "kilometer" : "mile";
     
     return(
-      <p>
-        {this.props.paceStr + "/" + test}
-      </p>
+      <div>
+        <h2 className="header">Pace</h2>   
+        <p className="result">
+          {this.props.paceStr + "/" + test}
+        </p>
+      </div>
     )
   }
 }
