@@ -65,6 +65,7 @@ body{
 
 .input-button {
   color: white;
+  text-align: center;
   border: none;
   width: 50px;
   border-radius: 0 5px 5px 0;
